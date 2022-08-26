@@ -5,6 +5,28 @@
 #include <list>
 
 
+template<typename T>
+class SmartPointer
+{
+public:
+    SmartPointer(T*ptr)
+    {
+        this->ptr = ptr;
+    }
+    ~SmartPointer()
+    {
+        delete ptr;
+    }
+
+    T& operator*()
+    {
+        return *ptr;
+    }
+
+private:
+    T* ptr;
+};
+
 int main()
 {
     setlocale(LC_ALL, "ru");
@@ -167,7 +189,7 @@ int main()
     }
     std::cout << "Количество элементов = " << result << std::endl;*/
 
-    char* a = new char[] {'П', 'р', 'и', 'в', 'е', 'т', '\0'};
+    /*char* a = new char[] {'П', 'р', 'и', 'в', 'е', 'т', '\0'};
     char* b = new char[] {'м', 'а', 'л', 'е', 'н', 'ь', 'к', 'и', 'й', '\0'};
     char* c = new char[] {'ч', 'е', 'р', 'н', 'ы', 'й', '\0'};
     char* d = new char[] {'м', 'а', 'л', 'ь', 'ч', 'и', 'к', '\0'};
@@ -205,12 +227,31 @@ int main()
     {
         std::cout << el << " ";
     }
+    std::cout << std::endl;
 
     for (auto del : vec)
     {
         delete[]del;
     }
 
+    return 0;*/
+
+    std::vector<int> vec = { 1,8,-3,17,-9,-11,10,24,4 };
+    for (int i = 0; i < vec.size() - 1; i++)
+    {
+        for (int j = i + 1; j < vec.size(); j++)
+        {
+            if (vec[i]>vec[j])
+            {
+                std::swap(vec[i], vec[j]);
+            }
+        }
+
+    }
+    for(auto element:vec)
+    {
+        std::cout << element << '\t';
+    }
     return 0;
 }
 
