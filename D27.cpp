@@ -5,27 +5,27 @@
 #include <list>
 
 
-template<typename T>
-class SmartPointer
-{
-public:
-    SmartPointer(T*ptr)
-    {
-        this->ptr = ptr;
-    }
-    ~SmartPointer()
-    {
-        delete ptr;
-    }
-
-    T& operator*()
-    {
-        return *ptr;
-    }
-
-private:
-    T* ptr;
-};
+//template<typename T>
+//class SmartPointer
+//{
+//public:
+//    SmartPointer(T*ptr)
+//    {
+//        this->ptr = ptr;
+//    }
+//    ~SmartPointer()
+//    {
+//        delete ptr;
+//    }
+//
+//    T& operator*()
+//    {
+//        return *ptr;
+//    }
+//
+//private:
+//    T* ptr;
+//};
 
 int main()
 {
@@ -232,18 +232,16 @@ int main()
     for (auto del : vec)
     {
         delete[]del;
-    }
-
-    return 0;*/
+    }*/
 
     std::vector<int> vec = { 1,8,-3,17,-9,-11,10,24,4 };
-    for (int i = 0; i < vec.size() - 1; i++)
+    for (int i = 0; i < vec.size(); i++)
     {
-        for (int j = i + 1; j < vec.size(); j++)
+        for (int j = 0; j < vec.size() - 1; j++)
         {
-            if (vec[i]>vec[j])
+            if (vec[j] > vec[j+1])
             {
-                std::swap(vec[i], vec[j]);
+                std::swap(vec[j], vec[j+1]);
             }
         }
 
@@ -252,6 +250,7 @@ int main()
     {
         std::cout << element << '\t';
     }
+
     return 0;
 }
 
